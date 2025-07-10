@@ -31,3 +31,17 @@ export async function getAllEvents(limit = 100) {
         console.log(err)
     }
 }
+
+//基本情報を取得する関数
+export async function getBasicInfo() {
+    try {
+        const data = await client.get({
+            endpoint: 'detail',
+        })
+        return data
+    } catch (err) {
+        console.log('-- getBasicInfo Error --')
+        console.error(err)
+        return null // エラー時はnullを返す
+    }
+}

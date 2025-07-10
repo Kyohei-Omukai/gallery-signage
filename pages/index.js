@@ -3,13 +3,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import dayjs from 'dayjs'
-import { getAllEvents } from 'libs/client'
+import { getAllEvents, getBasicInfo } from 'libs/client'
 import Header from 'components/Header'
+import Info from 'components/Info'
 import styles from 'styles/Home.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ events }) {
+export default function Home({ events, basicInfo }) {
     return (
         <>
             <Head>
@@ -18,19 +19,33 @@ export default function Home({ events }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
+            <main className={`${styles.container} stack-lg`}>
                 <Header title="今後のイベントスケジュール"></Header>
-                <ul className={styles.lists}>
+                <ul>
                     {events.map((event) => (
-                        <li key={event.id}>
-                            <p>{dayjs(event.date).format('YYYY年M月DD日')}</p>
-                            <h2>{event.title}</h2>
+                        <li key={event.id} className={styles.list}>
+                            <p className={styles.eventDate}>{dayjs(event.date).format('M月DD日(ddd)')}</p>
+                            <h2 className={styles.eventName}>{event.title}</h2>
                             {event.categories && event.categories.length > 0 && (
                                 <p>{event.categories.map((cat) => cat.name).join(', ')}</p>
                             )}
                         </li>
                     ))}
                 </ul>
+                <footer className={styles.footer}>
+                    <div className={styles.banner}>
+                        {basicInfo.banner && (
+                            <Image
+                                src={basicInfo.banner.url || basicInfo.banner}
+                                alt={basicInfo.title || 'インフォメーション'}
+                                width={basicInfo.banner.width}
+                                height={basicInfo.banner.height}
+                                layout="responsive"
+                            />
+                        )}
+                    </div>
+                    <Info detail={basicInfo}></Info>
+                </footer>
             </main>
         </>
     )
@@ -38,10 +53,12 @@ export default function Home({ events }) {
 
 export const getStaticProps = async () => {
     const events = await getAllEvents(10)
+    const basicInfo = await getBasicInfo()
 
     return {
         props: {
             events,
+            basicInfo,
         },
     }
 }

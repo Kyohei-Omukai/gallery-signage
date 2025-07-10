@@ -1,4 +1,34 @@
 /* @format */
-.lists {
-    border: 1px solid var(--gray600);
+.container {
+    padding: 32px 48px;
+}
+.list {
+    padding: 24px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border-bottom: 1px solid var(--gray500);
+    line-height: 1.4;
+    &:first-child {
+        border-top: 1px solid var(--gray500);
+    }
+}
+.eventDate {
+    font-size: var(--tertiary-heading-size);
+    font-weight: 700;
+    flex: 0 0 15%;
+}
+.eventName {
+    flex-grow: 1;
+    font-weight: 700;
+}
+.footer {
+    margin-top: 64px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+.banner {
+    width: 45%;
+    min-width: 600px;
 }
