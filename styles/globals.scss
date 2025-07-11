@@ -39,8 +39,9 @@ body {
 }
 
 body {
+    font-family: var(--font-Inter), var(--font-BizUdGothic);
     color: var(--gray100);
-    background: var(--white);
+    background: var(--gray700);
     line-height: 1;
 }
 a {

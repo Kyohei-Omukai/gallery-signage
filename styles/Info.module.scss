@@ -1,10 +1,9 @@
 /* @format */
 .basicInfo {
-    background: var(--gray600);
-    padding: 40px;
+    padding: 16px 40px;
 }
 .title {
-    font-size: var(--tertiary-heading-size);
+    font-size: var(--small-heading-size);
     font-weight: 700;
 }
 .address {
@@ -14,5 +13,4 @@
 .tel {
     font-size: var(--secondary-heading-size);
     font-weight: 700;
-    text-align: center;
 }

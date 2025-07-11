@@ -22,7 +22,7 @@ export async function getAllEvents(limit = 100) {
     try {
         const posts = await client.get({
             endpoint: 'event',
-            queries: { fields: 'id,title,date,categories', orders: '-publishDate', limit: limit },
+            queries: { fields: 'id,title,date,categories,monthly', orders: '-publishDate', limit: limit },
         })
 
         return posts.contents
