@@ -1,4 +1,5 @@
 /* @format */
+import Image from 'next/image'
 import styles from 'styles/Info.module.scss'
 
 export default function Info({ detail }) {
@@ -14,7 +15,10 @@ export default function Info({ detail }) {
                     {detail.address}
                 </li>
             </ul>
-            <p className={styles.tel}>{detail.tel}</p>
+            <p className={styles.tel}>
+                <Image src="/tel-img.svg" alt="" width="41" height="33" />
+                {detail.tel}
+            </p>
         </div>
     )
 }
