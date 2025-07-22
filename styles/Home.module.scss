@@ -22,17 +22,19 @@
 }
 .eventName {
     flex-grow: 1;
-    font-size: 3vw;
+    font-size: 2.5vw;
     font-weight: 700;
     line-height: 1.5;
 }
 .categories {
     display: flex;
     gap: 8px;
+    width: 20%;
+    flex: 0 0 15%;
     flex-direction: column;
     span {
         padding: 2px 8px;
-        width: 140px;
+        width: 100%;
         border: 1.5px solid;
         border-radius: 8px;
         color: #3075bb;
