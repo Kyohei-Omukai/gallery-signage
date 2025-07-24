@@ -1,4 +1,5 @@
 /* @format */
+import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import dayjs from 'dayjs'
@@ -16,23 +17,25 @@ export default function Home({ events, basicInfo }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={`${styles.container} stack-lg`}>
+            <main className="container stack-lg">
                 <Header title="今後のイベントスケジュール"></Header>
                 <ul>
                     {events.map((event) => (
                         <li key={event.id} className={styles.list}>
-                            {event.date && (
-                                <p className={styles.eventDate}>{dayjs(event.date).format('M月DD日(ddd)')}</p>
-                            )}
-                            {event.monthly && <p className={styles.eventDate}>{event.monthly}</p>}
-                            <h2 className={styles.eventName}>{event.title}</h2>
-                            {event.categories && event.categories.length > 0 && (
-                                <p className={styles.categories}>
-                                    {event.categories.map((cat, index) => (
-                                        <span key={index}>{cat.name}</span>
-                                    ))}
-                                </p>
-                            )}
+                            <Link href={`/event/${event.id}`}>
+                                {event.date && (
+                                    <p className={styles.eventDate}>{dayjs(event.date).format('M月DD日(ddd)')}</p>
+                                )}
+                                {event.monthly && <p className={styles.eventDate}>{event.monthly}</p>}
+                                <h2 className={styles.eventName}>{event.title}</h2>
+                                {event.categories && event.categories.length > 0 && (
+                                    <p className={styles.categories}>
+                                        {event.categories.map((cat, index) => (
+                                            <span key={index}>{cat.name}</span>
+                                        ))}
+                                    </p>
+                                )}
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -43,6 +46,7 @@ export default function Home({ events, basicInfo }) {
                         <Image
                             src={basicInfo.banner.url || basicInfo.banner}
                             alt={basicInfo.title || 'インフォメーション'}
+                            priority="true"
                             width={basicInfo.banner.width}
                             height={basicInfo.banner.height}
                             layout="responsive"

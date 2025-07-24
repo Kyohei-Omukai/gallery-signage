@@ -1,40 +1,51 @@
 /* @format */
-.container {
-    overflow: hidden;
-    padding: 32px 24px;
-}
+
 .list {
-    padding: 24px 16px 24px 24px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray500);
-    border-right: 1px solid var(--gray500);
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.02);
-    line-height: 1.4;
+    a {
+        padding: 24px 5% 24px 24px;
+        display: flex;
+        position: relative;
+        gap: 4px 12px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray500);
+        border-right: 1px solid var(--gray500);
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.02);
+        line-height: 1.4;
+        &::after {
+            width: 16px;
+            height: 16px;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            border-top: 3px solid var(--gray300);
+            border-right: 3px solid var(--gray300);
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
 }
 .eventDate {
     font-size: var(--tertiary-heading-size);
     font-weight: 700;
-    flex: 0 0 15%;
+    flex: 0 0 16%;
     line-height: 2.2;
 }
 .eventName {
-    flex-grow: 1;
-    font-size: 2.5vw;
+    flex: 1;
+    font-size: 2.7vw;
     font-weight: 700;
     line-height: 1.5;
 }
 .categories {
+    padding-left: calc(16% + 12px);
     display: flex;
     gap: 8px;
-    width: 20%;
-    flex: 0 0 15%;
-    flex-direction: column;
+    width: 100%;
     span {
         padding: 2px 8px;
-        width: 100%;
         border: 1.5px solid;
         border-radius: 8px;
         color: #3075bb;

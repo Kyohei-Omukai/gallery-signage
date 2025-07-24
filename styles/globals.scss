@@ -89,6 +89,10 @@ button {
 /*--------------------------------
  common
 --------------------------------*/
+.container {
+    overflow: hidden;
+    padding: 32px 24px;
+}
 .stack {
     & > * + * {
         margin-top: 16px;

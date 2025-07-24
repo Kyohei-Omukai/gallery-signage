@@ -18,7 +18,7 @@ export default function Info({ detail }) {
             </div>
             <div className="stack">
                 <p className={styles.tel}>
-                    <Image src="/tel-img.svg" alt="" width="41" height="33" />
+                    <Image src="/tel-img.svg" alt="" layout="fixed" width="41" height="33" />
                     {detail.tel}
                 </p>
                 <ul className="stack-min">
