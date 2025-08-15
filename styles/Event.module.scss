@@ -42,19 +42,30 @@
     font-size: var(--secondary-heading-size);
     text-align: center;
 }
-.table {
-    margin-top: 32px;
-    font-size: var(--tertiary-heading-size);
-    line-height: 1.8;
-    border-top: 1px solid var(--gray300);
-    th,
-    td {
-        padding: 24px;
-        border-bottom: 1px solid var(--gray300);
+.eventBody {
+    & > * + * {
+        margin-top: 32px;
     }
-    th {
-        width: 20%;
-        font-weight: 300;
+    h2 {
+        padding-top: 40px;
+        font-size: var(--secondary-heading-size);
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        margin-top: 32px;
+        font-size: var(--tertiary-heading-size);
+        line-height: 1.8;
+        border-top: 1px solid var(--gray300);
+        th,
+        td {
+            padding: 24px;
+            border-bottom: 1px solid var(--gray300);
+        }
+        th {
+            width: 20%;
+            font-weight: 300;
+        }
     }
 }
 .backBtn {

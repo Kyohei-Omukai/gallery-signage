@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { client } from 'libs/client.js'
 import dayjs from 'dayjs'
+import ConvertBody from 'components/convert-body'
 import styles from 'styles/Event.module.scss'
 
 export default function Event({ event }) {
@@ -30,9 +31,10 @@ export default function Event({ event }) {
                         <div className={styles.desc} dangerouslySetInnerHTML={{ __html: event.description }}></div>
                     )}
 
-                    {event.summary && <h2 className={styles.summaryTitle}>開催概要</h2>}
                     {event.summary && (
-                        <div className={styles.table} dangerouslySetInnerHTML={{ __html: event.summary }}></div>
+                        <article className={styles.eventBody}>
+                            <ConvertBody contentHTML={event.summary} />
+                        </article>
                     )}
                 </div>
                 <Link href="/" className={styles.backBtn}>
